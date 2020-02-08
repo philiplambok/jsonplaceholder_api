@@ -35,4 +35,14 @@ RSpec.describe JsonplaceholderApi do
     expect(first_comment['name']).not_to be_nil
     expect(first_comment['email']).not_to be_nil
   end
+
+  it 'returns expected comment data' do
+    client = JsonplaceholderApi::Client.new
+    comment = client.comments.find(2)
+    comment_json = comment.to_json
+    expect(comment_json['postId']).not_to be_nil
+    expect(comment_json['id']).not_to be_nil
+    expect(comment_json['name']).not_to be_nil
+    expect(comment_json['email']).not_to be_nil
+  end
 end
