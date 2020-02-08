@@ -22,7 +22,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Experimental project to designing good api wrapper. 
+
+```rb
+# create client object
+client = JsonplaceholderApi::Client.new
+
+# find posts
+client.posts.all.to_json #> [{ id: 10, title: 'Post title', body: 'Post body' }]
+
+# find spesific post
+client.posts.find(2) #> { id: 2, title: 'Post title', body: 'Post body' }
+
+# find comments in spesific post
+post = client.posts.find(2)
+post.comments.to_json #> [{ id: 5, user_id: 12, body: 'This is sample comment' }]
+```
 
 ## Development
 
