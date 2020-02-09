@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'jsonplaceholder_api/json_helper'
+require 'jsonplaceholder_api/json_parser'
 
 module JsonplaceholderApi
   module Api
     class Post
-      include JsonHelper
+      include JsonParser
 
       PATH = '/posts'
 

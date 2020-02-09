@@ -3,7 +3,7 @@
 require 'faraday'
 
 module JsonplaceholderApi
-  module HttpHelper
+  module HttpRequest
     BASE_URL = 'https://jsonplaceholder.typicode.com'
 
     def get(path, params = {})

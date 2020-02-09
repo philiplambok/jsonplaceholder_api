@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module JsonplaceholderApi
-  module JsonHelper
+  module JsonParser
     def to_json(*_args)
       JSON.parse(@response)
     end

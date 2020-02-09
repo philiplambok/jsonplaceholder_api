@@ -2,11 +2,11 @@
 
 require 'jsonplaceholder_api/api/post'
 require 'jsonplaceholder_api/api/comment'
-require 'jsonplaceholder_api/http_helper'
+require 'jsonplaceholder_api/http_request'
 
 module JsonplaceholderApi
   class Client
-    include HttpHelper
+    include HttpRequest
 
     def initialize; end
 

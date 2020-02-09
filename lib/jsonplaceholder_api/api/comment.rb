@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'jsonplaceholder_api/json_helper'
+require 'jsonplaceholder_api/json_parser'
 
 module JsonplaceholderApi
   module Api
     class Comment
       PATH = '/comments'
 
-      include JsonHelper
+      include JsonParser
 
       def initialize(client)
         @client = client
