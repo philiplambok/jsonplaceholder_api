@@ -1,8 +1,6 @@
 # JsonplaceholderApi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jsonplaceholder_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+An experimental project to design a nice design of api wrapper pattern.
 
 ## Installation
 
@@ -22,21 +20,27 @@ Or install it yourself as:
 
 ## Usage
 
-Experimental project to designing good api wrapper. 
-
 ```rb
 # create client object
 client = JsonplaceholderApi::Client.new
 
-# find posts
-client.posts.all.to_json #> [{ id: 10, title: 'Post title', body: 'Post body' }]
+# find all posts
+posts = client.posts.all 
+posts.to_json #> [{ id: 10, title: 'Post title', body: 'Post body' }]
 
 # find spesific post
-client.posts.find(2) #> { id: 2, title: 'Post title', body: 'Post body' }
-
-# find comments in spesific post
 post = client.posts.find(2)
+post.to_json #> { id: 2, title: 'Post title', body: 'Post body' }
+
+# update the post
+post.update(title: 'Updated post')
+post.to_json #> { id: 2, title: 'Updated post', body: 'Post body' }
+
+# find list comments of the post
 post.comments.to_json #> [{ id: 5, user_id: 12, body: 'This is sample comment' }]
+
+# delete the post
+post.destroy #> #> { id: 2, title: 'Updated post', body: 'Post body' }
 ```
 
 ## Development
@@ -47,7 +51,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jsonplaceholder_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/jsonplaceholder_api/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/philiplambok/jsonplaceholder_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/philiplambok/jsonplaceholder_api/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -56,4 +60,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the JsonplaceholderApi project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/jsonplaceholder_api/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the JsonplaceholderApi project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/philiplambok/jsonplaceholder_api/blob/master/CODE_OF_CONDUCT.md).
